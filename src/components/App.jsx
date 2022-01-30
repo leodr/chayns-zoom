@@ -18,12 +18,15 @@ export function App() {
     return (
         <>
             {person && (
-                <img
-                    src={`https://sub60.tobit.com/u/${person.personId}?size=1000`}
-                    alt={`Profilbild von ${person.fullName}`}
-                />
+                <>
+                    <img
+                        src={`https://sub60.tobit.com/u/${person.personId}?size=1000`}
+                        alt={`Profilbild von ${person.fullName}`}
+                        style={{ width: '100%' }}
+                    />
+                    <div style={{ height: 12 }} />
+                </>
             )}
-            <div style={{ height: 12 }} />
             <PersonFinder
                 onChange={(newPerson) => setPerson(newPerson)}
                 placeholder="Person finden..."
