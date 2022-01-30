@@ -15,7 +15,14 @@ export function App() {
 
     if (!isAuthenticated) {
         return (
-            <div style={{ display: 'flex', alignItems: 'center', padding: 12 }}>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: 12,
+                    justifyContent: 'center',
+                }}
+            >
                 <Button onClick={handleLogin}>Einloggen</Button>
             </div>
         );
