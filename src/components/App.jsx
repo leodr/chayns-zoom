@@ -42,7 +42,7 @@ export function App() {
 
             <div
                 // Buffer for the animation
-                style={{ height: 200 }}
+                style={{ height: 600 }}
             />
         </>
     );
