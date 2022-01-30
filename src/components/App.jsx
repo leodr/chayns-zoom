@@ -7,13 +7,18 @@ import React, { useState } from 'react';
 export function App() {
     const { isAuthenticated } = useChaynsUser();
     const [person, setPerson] = useState();
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     function handleLogin() {
         chayns.login();
     }
 
     if (!isAuthenticated) {
-        return <Button onClick={handleLogin}>Einloggen</Button>;
+        return (
+            <div style={{ display: 'flex', alignItems: 'center', padding: 12 }}>
+                <Button onClick={handleLogin}>Einloggen</Button>
+            </div>
+        );
     }
 
     return (
@@ -22,7 +27,7 @@ export function App() {
                 {person && (
                     <motion.div
                         initial={{ height: 0 }}
-                        animate={{ height: 'auto' }}
+                        animate={{ height: imageLoaded ? 'auto' : 0 }}
                         exit={{ height: 0 }}
                         style={{ overflow: 'hidden' }}
                     >
@@ -30,13 +35,17 @@ export function App() {
                             src={`https://sub60.tobit.com/u/${person.personId}?size=1000`}
                             alt={`Profilbild von ${person.fullName}`}
                             style={{ width: '100%' }}
+                            onLoad={() => setImageLoaded(true)}
                         />
                         <div style={{ height: 12 }} />
                     </motion.div>
                 )}
             </AnimatePresence>
             <PersonFinder
-                onChange={(newPerson) => setPerson(newPerson)}
+                onChange={(newPerson) => {
+                    setPerson(newPerson);
+                    setImageLoaded(false);
+                }}
                 placeholder="Person finden..."
             />
 
