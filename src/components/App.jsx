@@ -24,6 +24,7 @@ export function App() {
                         initial={{ height: 0 }}
                         animate={{ height: 'auto' }}
                         exit={{ height: 0 }}
+                        style={{ overflow: 'hidden' }}
                     >
                         <img
                             src={`https://sub60.tobit.com/u/${person.personId}?size=1000`}
@@ -37,6 +38,11 @@ export function App() {
             <PersonFinder
                 onChange={(newPerson) => setPerson(newPerson)}
                 placeholder="Person finden..."
+            />
+
+            <div
+                // Buffer for the animation
+                style={{ height: 200 }}
             />
         </>
     );
