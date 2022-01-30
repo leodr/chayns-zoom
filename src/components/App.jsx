@@ -1,7 +1,20 @@
+/* eslint-disable react/jsx-no-bind */
+import { Button, PersonFinder } from 'chayns-components';
+import { useChaynsUser } from 'chayns-hooks';
 import React from 'react';
 
-const App = () => {
-    return <h1>Hi! Welcome to your newly created chayns application!</h1>;
-};
+export function App() {
+    const { isAuthenticated } = useChaynsUser();
 
-export default App;
+    function handleLogin() {
+        chayns.login();
+    }
+
+    if (!isAuthenticated) {
+        return <Button onClick={handleLogin}>Einloggen</Button>;
+    }
+
+    return (
+        <PersonFinder onChange={console.log} placeholder="Person finden..." />
+    );
+}
