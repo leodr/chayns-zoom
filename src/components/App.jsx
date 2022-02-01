@@ -36,25 +36,26 @@ export function App() {
                         initial={{ height: 0 }}
                         animate={{ height: imageLoaded ? 'auto' : 0 }}
                         exit={{ height: 0 }}
-                        style={{
-                            alignItems: 'center',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            overflow: 'hidden',
-                        }}
+                        style={{ overflow: 'hidden' }}
                     >
-                        <img
-                            src={`https://sub60.tobit.com/u/${person.personId}?size=1500`}
-                            alt={`Profilbild von ${person.fullName}`}
+                        <div
                             style={{
-                                borderRadius: 4,
-                                width: '100%',
-                                maxWidth: '512px',
-                                overflow: 'hidden',
+                                display: 'flex',
+                                justifyContent: 'center',
                             }}
-                            onLoad={() => setImageLoaded(true)}
-                        />
+                        >
+                            <img
+                                src={`https://sub60.tobit.com/u/${person.personId}?size=1500`}
+                                alt={`Profilbild von ${person.fullName}`}
+                                style={{
+                                    borderRadius: 4,
+                                    width: '100%',
+                                    maxWidth: '512px',
+                                    overflow: 'hidden',
+                                }}
+                                onLoad={() => setImageLoaded(true)}
+                            />
+                        </div>
                         <div
                             style={{ height: chayns.env.isMobile ? 16 : 20 }}
                         />
