@@ -48,13 +48,15 @@ export function App() {
                             alt={`Profilbild von ${person.fullName}`}
                             style={{
                                 width: '100%',
-                                maxWidth: '600px',
-                                borderRadius: 2,
+                                maxWidth: '512px',
+                                borderRadius: 4,
                                 overflow: 'hidden',
                             }}
                             onLoad={() => setImageLoaded(true)}
                         />
-                        <div style={{ height: 12 }} />
+                        <div
+                            style={{ height: chayns.env.isMobile ? 16 : 20 }}
+                        />
                     </motion.div>
                 )}
             </AnimatePresence>
