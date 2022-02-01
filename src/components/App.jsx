@@ -68,6 +68,7 @@ export function App() {
                     setImageLoaded(false);
                 }}
                 placeholder="Person finden..."
+                includeOwn
             />
 
             <div
