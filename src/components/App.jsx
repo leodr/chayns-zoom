@@ -39,7 +39,7 @@ export function App() {
                         style={{ overflow: 'hidden' }}
                     >
                         <img
-                            src={`https://sub60.tobit.com/u/${person.personId}?size=1000`}
+                            src={`https://sub60.tobit.com/u/${person.personId}?size=1500`}
                             alt={`Profilbild von ${person.fullName}`}
                             style={{ width: '100%' }}
                             onLoad={() => setImageLoaded(true)}
