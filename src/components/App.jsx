@@ -36,12 +36,22 @@ export function App() {
                         initial={{ height: 0 }}
                         animate={{ height: imageLoaded ? 'auto' : 0 }}
                         exit={{ height: 0 }}
-                        style={{ overflow: 'hidden' }}
+                        style={{
+                            overflow: 'hidden',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
                     >
                         <img
                             src={`https://sub60.tobit.com/u/${person.personId}?size=1500`}
                             alt={`Profilbild von ${person.fullName}`}
-                            style={{ width: '100%' }}
+                            style={{
+                                width: '100%',
+                                maxWidth: '600px',
+                                borderRadius: 2,
+                                overflow: 'hidden',
+                            }}
                             onLoad={() => setImageLoaded(true)}
                         />
                         <div style={{ height: 12 }} />
